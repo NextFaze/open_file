@@ -53,6 +53,9 @@ static NSString *const CHANNEL_NAME = @"open_file";
                     [self openFileWithUIActivityViewController:fileURL];
                 }else{
                     BOOL previewSucceeded = [_documentController presentPreviewAnimated:YES];
+                    if (@available(iOS 18.0, *)) {
+                        sleep(1);
+                    }
                     if(!previewSucceeded){
                         //                    [_documentController presentOpenInMenuFromRect:CGRectMake(500,20,100,100) inView:[UIApplication sharedApplication].delegate.window.rootViewController.view animated:YES];
                         
